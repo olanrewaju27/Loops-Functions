@@ -1,5 +1,10 @@
 
-database = {}
+database = {
+
+    8190748418:  ["ren", "len", "hjsdfy", "rtt", 0]
+
+
+}
 import random
 def init():
 
@@ -50,9 +55,11 @@ def register():
     last_name = input("What is your last name?\n")
     password = input("Create a password \n")
 
+    account_balance = 0
+
     accountNumber = generateAccountNumber()
 
-    database[accountNumber] = [first_name, last_name, email, password]
+    database[accountNumber] = [first_name, last_name, email, password, account_balance]
 
     print("Your account has been createdd")
     print("Your Account number is %d" %accountNumber)
@@ -82,15 +89,38 @@ def bankOperation(user):
 
 
 def depositOperation():
-    print("go ahead")
+
+    account_balance = 0
+
+    x = int(input("how much do you want to deposit? \n"))
+
+    account_balance = 0 + x
+
+    account_balance = userDetails[4]
+
+
+
+    print("your new account balance is %d" %account_balance)
+
+    withdrawalOperation()
+
+
+
 
 
 def withdrawalOperation():
-    int(input("How much do you want to withdraw? \n"))
+    y = int(input("How much do you want to withdraw? \n"))
 
-    print("Please Accept your Cash")
+    account_balance = userDetails[4]
 
-    print("Thank you for using Bank")
+    if account_balance > y:
+        print("Please wait ...")
+        print("Thank you for using bank")
+
+    else: 
+        print("Insufficient funds")
+
+    
 
     login()
 
@@ -105,5 +135,6 @@ def generateAccountNumber():
 
 
 init()
+
 
 
